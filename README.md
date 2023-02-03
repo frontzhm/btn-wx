@@ -10,9 +10,9 @@
 
 微信重场景，或扫码，或收藏里，或分享出来的卡片等等吧，反正不能直接点击赤裸裸的链接。如果配置都正常，但显示`{isTrusted:false}`的话，可能就是这个问题（天知道，就这，我排查了一天）。
 
-## 演示效果
 
-![c4.mp4](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/c4.mp4)
+[演示效果.mp4](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/c4.mp4)
+
 ## 安装
 
 ```shell
@@ -20,12 +20,12 @@
 yarn add btn-wx
 ```
 
-## 代码演示
+## 简单使用
 
 ```vue
 <template>
-<btnWx class="btn"    、
-  :configWx="configWx" 
+<btnWx class="btn"
+  :configWx="configWx"
   :configWxTag="configWxTag"
   :configCallAppNotInWx="configCallAppNotInWx">
   打开自家APP
@@ -57,17 +57,17 @@ const configCallAppNotInWx = {
   fallback: "http://vip-talent.firqr.com/talent" // 安卓app的下载地址
 };
 
-const clickBtnNotInWx = ()=>{console.log('非微信浏览器点击按钮触发的事件')/**/}
+
 export default {
   data(){
     configWx,
     configWxTag,
     configCallAppNotInWx,
-    clickBtnNotInWx:()=>{console.log('点击事件，在非微信环境下。默认是唤起APP，同微信环境')}
   }
 }
 <script>
 <style scoped>
+/* btn 样式自定义设置，不影响*/
 .btn{color:#f69;}
 </style>
 ```
@@ -178,14 +178,17 @@ wx.config({ debug: true, openTagList: ["wx-open-launch-app"] }); // 需要使用
 这里简单贴下步骤：
 
 - charles 里加上代理路径
-  ![charles_wx](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/charles_wx.png)
+
+  ![charles_wx](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bf01e616142456d8a37c96c30783956~tplv-k3u1fbpfcp-zoom-1.image)
 - 手机端和电脑在同一个无线网，设置代理，看下电脑的 ip 地址`ifconfig en0`
-  ![c1](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/c1.png)
+  <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e6d706214f0474ea2b2e12170f60d56~tplv-k3u1fbpfcp-zoom-1.image" alt="c1" width="300"/>
+
 - 如果是首次的话，做完上面之后
   - 注意电脑端的 charles 会弹框让你同意，你必须点`同意`
   - 手机在默认浏览器输入地址`chls.pro/ssl`，一般会触发下载
   - 下载完先安装好
   - 再去信任它（ios 的话，设置 - 通用 - 描述文件与设备管理）
-    ![c2](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/c2.png)
+      <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eefe568f55bd4897b240f8b5417afd91~tplv-k3u1fbpfcp-zoom-1.image" alt="c2" width="300"/>
+    
 - 此时就可以在手机的微信里打开`认可的域名`，然后可以调试了。
 - 跳转功能的麻烦点在于，涉及的部门多，多多沟通
