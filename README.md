@@ -10,6 +10,9 @@
 
 微信重场景，或扫码，或收藏里，或分享出来的卡片等等吧，反正不能直接点击赤裸裸的链接。如果配置都正常，但显示`{isTrusted:false}`的话，可能就是这个问题（天知道，就这，我排查了一天）。
 
+## 演示效果
+
+![c4.mp4](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/c4.mp4)
 ## 安装
 
 ```shell
@@ -186,7 +189,3 @@ wx.config({ debug: true, openTagList: ["wx-open-launch-app"] }); // 需要使用
     ![c2](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/c2.png)
 - 此时就可以在手机的微信里打开`认可的域名`，然后可以调试了。
 - 跳转功能的麻烦点在于，涉及的部门多，多多沟通
-
-## 演示效果
-
-![c4.mp4](https://blog-huahua.oss-cn-beijing.aliyuncs.com/blog/code/c4.mp4)
