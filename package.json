@@ -1,6 +1,7 @@
 {
   "name": "btn-wx",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "repository": "https://github.com/frontzhm/btn-wx",
   "description": "a button component that can open your application in wechat or browser",
   "main": "dist/btn-wx.ssr.js",
   "browser": "dist/btn-wx.esm.js",
